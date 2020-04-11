@@ -1,4 +1,4 @@
-package sia;
+package datos;
 
 import java.util.ArrayList;
 
@@ -16,8 +16,8 @@ public class Asignatura {
 	public int getCreditos() {
 		return creditos;
 	}
-	public void setCreditos(int creditos) {
-		this.creditos = creditos;
+	public void setCreditos(int creditoss) {
+		this.creditos = creditoss;
 	}
 	public String getNombre() {
 		return nombre;
