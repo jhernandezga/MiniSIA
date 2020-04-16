@@ -4,13 +4,58 @@ import java.util.ArrayList;
 
 public class Profesor {
 	
+	private String nombre;
 	private int cedula;
 	private int edad;
-	private String nombre;
 	private String email;
 	private String especialidad;
-	private ArrayList<Grupo> grupos = new ArrayList() ;
+	private ArrayList<Grupo> grupos = new ArrayList<Grupo>() ;
 	
+	public Profesor(String nombre)
+	{
+		this.nombre = nombre;
+		this.cedula = 0;
+		this.edad = 0;
+		this.email = "";
+		this.especialidad = "";
+		grupos = new ArrayList<Grupo>();
+	}
+	public Profesor(String nombre,int cedula)
+	{
+		this.nombre = nombre;
+		this.cedula = cedula;
+		this.edad = 0;
+		this.email = "";
+		this.especialidad = "";
+		grupos = new ArrayList<Grupo>();
+	}
+	public Profesor(String nombre,int cedula, int edad)
+	{
+		this.nombre = nombre;
+		this.cedula = cedula;
+		this.edad = edad;
+		this.email = "";
+		this.especialidad = "";
+		grupos = new ArrayList<Grupo>();
+	}
+	public Profesor(String nombre,int cedula, int edad, String email)
+	{
+		this.nombre = nombre;
+		this.cedula = cedula;
+		this.edad = edad;
+		this.email = email;
+		this.especialidad = "";
+		grupos = new ArrayList<Grupo>();
+	}
+	public Profesor(String nombre,int cedula, int edad, String email, String especialidad)
+	{
+		this.nombre = nombre;
+		this.cedula = cedula;
+		this.edad = edad;
+		this.email = email;
+		this.especialidad = especialidad;
+		grupos = new ArrayList<Grupo>();
+	}
 	
 	public int getCedula() {
 		return cedula;
@@ -48,4 +93,14 @@ public class Profesor {
 	public void setGrupo(ArrayList<Grupo> grupos) {
 		this.grupos = grupos;
 	}
+	public void asignarGrupo(Grupo grupo)
+	{
+		this.grupos.add(grupo);
+	}
+	@Override
+	public String toString() {
+		return "nombre=" + nombre + "\ncedula=" + cedula + "\nedad=" + edad + "\nemail=" + email
+				+ "\nespecialidad=" + especialidad;
+	}
+	
 }

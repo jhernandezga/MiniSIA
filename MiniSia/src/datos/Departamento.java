@@ -10,6 +10,41 @@ public class Departamento {
 	private ArrayList<Asignatura> asignaturasOfertadas ;
 	private ArrayList<Carrera> carreras;
 	
+	public Departamento(String pNombre)
+	{
+		nombre = pNombre;
+		codigo ="";
+		coordinador = "";
+		facultad = null;
+		asignaturasOfertadas = new ArrayList<Asignatura>();
+		carreras = new ArrayList<Carrera>();
+	}
+	public Departamento(String pNombre, Facultad pFacultad)
+	{
+		nombre = pNombre;
+		codigo ="";
+		coordinador = "";
+		facultad = pFacultad;
+		asignaturasOfertadas = new ArrayList<Asignatura>();
+		carreras = new ArrayList<Carrera>();
+	}
+	public Departamento(String pNombre, String pCodigo,Facultad pFacultad)
+	{
+		nombre = pNombre;
+		codigo =pCodigo;
+		coordinador = "";
+		facultad = pFacultad;
+		asignaturasOfertadas = new ArrayList<Asignatura>();
+		carreras = new ArrayList<Carrera>();
+	}
+	
+	
+	public Departamento(String nombre, String codigo, String coordinador, Facultad facultad) {
+		this.nombre = nombre;
+		this.codigo = codigo;
+		this.coordinador = coordinador;
+		this.facultad = facultad;
+	}
 	
 	public String getNombre() {
 		return nombre;
@@ -41,12 +76,21 @@ public class Departamento {
 	public void setAsignaturasOfertadas(ArrayList<Asignatura> asignaturasOfertadas) {
 		this.asignaturasOfertadas = asignaturasOfertadas;
 	}
+	public void añadirAsignaturaOfertada(Asignatura pAsignatura) {
+		asignaturasOfertadas.add(pAsignatura);
+	}
 	public ArrayList<Carrera> getCarreras() {
 		return carreras;
 	}
-	public void setCarreras(ArrayList<Carrera> carreras) {
-		this.carreras = carreras;
+	public void añadirCarrera(Carrera carrera) {
+		carreras.add(carrera);
 	}
+	@Override
+	public String toString() {
+		return "nombre=" + nombre + "\ncodigo=" + codigo + "\ncoordinador=" + coordinador + "\nfacultad="
+				+ facultad + "]";
+	}
+	
 	
 
 }

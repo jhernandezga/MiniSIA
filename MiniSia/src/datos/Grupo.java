@@ -12,6 +12,77 @@ public class Grupo {
 	private Asignatura asignatura;
 	private ArrayList<Estudiante> estudiantesInscritos;
 	
+	public Grupo(int numeroGrupo)
+	{
+		this.numeroGrupo = numeroGrupo;
+		this.cupos = 0;
+		this.aula ="";
+		this.horario = "";
+		this.profesor = null;
+		this.asignatura = null;
+		estudiantesInscritos = new ArrayList<Estudiante>();
+	}
+	public Grupo(int numeroGrupo, int cupos)
+	{
+		this.numeroGrupo = numeroGrupo;
+		this.cupos = cupos;
+		this.aula ="";
+		this.horario = "";
+		this.profesor = null;
+		this.asignatura = null;
+		estudiantesInscritos = new ArrayList<Estudiante>();
+	}
+	public Grupo(int numeroGrup, int cupos, String aula)
+	{
+		this.numeroGrupo = numeroGrupo;
+		this.cupos = cupos;
+		this.aula =aula;
+		this.horario = "";
+		this.profesor = null;
+		this.asignatura = null;
+		estudiantesInscritos = new ArrayList<Estudiante>();
+	}
+	public Grupo(int numeroGrup, int cupos, Profesor profe)
+	{
+		this.numeroGrupo = numeroGrupo;
+		this.cupos = cupos;
+		this.aula ="";
+		this.horario = "";
+		this.profesor = profe;
+		this.asignatura = null;
+		estudiantesInscritos = new ArrayList<Estudiante>();
+	}
+	public Grupo(int numeroGrup, int cupos, Asignatura asig)
+	{
+		this.numeroGrupo = numeroGrupo;
+		this.cupos = cupos;
+		this.aula ="";
+		this.horario = "";
+		this.profesor = null;
+		this.asignatura = asig;
+		estudiantesInscritos = new ArrayList<Estudiante>();
+	}
+	public Grupo(int numeroGrup, Profesor profe, Asignatura asig)
+	{
+		this.numeroGrupo = numeroGrupo;
+		this.cupos = 0 ;
+		this.aula ="";
+		this.horario = "";
+		this.profesor = profe;
+		this.asignatura = asig;
+		estudiantesInscritos = new ArrayList<Estudiante>();
+	}
+	public Grupo(int numeroGrup, int cupos, String aula,String horario, Profesor profesor, Asignatura asignatura)
+	{
+		this.numeroGrupo = numeroGrupo;
+		this.cupos = cupos;
+		this.aula =aula;
+		this.horario = horario;
+		this.profesor = profesor;
+		this.asignatura = asignatura;
+		estudiantesInscritos = new ArrayList<Estudiante>();
+	}
+	
 	public int getNumeroGrupo() {
 		return numeroGrupo;
 	}
@@ -55,5 +126,16 @@ public class Grupo {
 	public void setEstudiantesInscritos(ArrayList<Estudiante> estudiantesInscritos) {
 		this.estudiantesInscritos = estudiantesInscritos;
 	}
+	public void inscribirEstudiante(Estudiante pEstudiantes) {
+		estudiantesInscritos.add(pEstudiantes);
+		cupos--;
+	}
+	@Override
+	public String toString() {
+		return "Grupo =" + numeroGrupo + "\ncupos=" + cupos + "\naula=" + aula + "\nhorario=" + horario
+				+ "\nprofesor=" + profesor.getNombre() + "\nasignatura=" + asignatura.getNombre();
+	}
+	
+	
 
 }

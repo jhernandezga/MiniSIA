@@ -13,9 +13,76 @@ public class Asignatura {
 	private ArrayList<Grupo> grupos;
 	private ArrayList<Carrera> carreras;
 	
+	public Asignatura()
+	{
+		nombre = "";
+		creditos = 0;
+		codigo= "";
+		duracion ="";
+		departamento = null;
+		grupos = new ArrayList<Grupo>();
+		carreras = new ArrayList<Carrera>();
+	}
+	public Asignatura(String pNombre, int pCreditos)
+	{
+		nombre = pNombre;
+		creditos = pCreditos;
+		codigo= "";
+		duracion ="";
+		departamento = null;
+		grupos = new ArrayList<Grupo>();
+		carreras = new ArrayList<Carrera>();
+		
+	}
+	public Asignatura(String pNombre, String pCodigo)
+	{
+		nombre = pNombre;
+		creditos = 0;
+		codigo= "";
+		duracion ="";
+		departamento = null;
+		grupos = new ArrayList<Grupo>();
+		carreras = new ArrayList<Carrera>();
+	}
+	public Asignatura(String pNombre, int pCredito, Departamento pDepartamento)
+	{
+		nombre = pNombre;
+		creditos = pCredito;
+		codigo= "";
+		duracion ="";
+		departamento = pDepartamento;
+		grupos = new ArrayList<Grupo>();
+		carreras = new ArrayList<Carrera>();
+	}
+	public Asignatura(String pNombre, String pCodigo, Departamento pDepartamento)
+	{
+		nombre = pNombre;
+		creditos = 0;
+		codigo= pCodigo;
+		duracion ="";
+		departamento = pDepartamento;
+		grupos = new ArrayList<Grupo>();
+		carreras = new ArrayList<Carrera>();
+	}
+	
+	public Asignatura(int creditos, String nombre, String tipologia, String codigo, String duracion,
+			Departamento departamento) {
+		super();
+		this.creditos = creditos;
+		this.nombre = nombre;
+		this.tipologia = tipologia;
+		this.codigo = codigo;
+		this.duracion = duracion;
+		this.departamento = departamento;
+		grupos = new ArrayList<Grupo>();
+		carreras = new ArrayList<Carrera>();
+	}
+	
+	
 	public int getCreditos() {
 		return creditos;
 	}
+
 	public void setCreditos(int creditoss) {
 		this.creditos = creditoss;
 	}
@@ -46,8 +113,8 @@ public class Asignatura {
 	public ArrayList<Grupo> getGrupos() {
 		return grupos;
 	}
-	public void setGrupos(ArrayList<Grupo> grupos) {
-		this.grupos = grupos;
+	public void asignarGrupo(Grupo grupo) {
+		grupos.add(grupo);
 	}
 	public Departamento getDepartamento() {
 		return departamento;
@@ -58,8 +125,14 @@ public class Asignatura {
 	public ArrayList<Carrera> getCarreras() {
 		return carreras;
 	}
-	public void setCarreras(ArrayList<Carrera> carreras) {
-		this.carreras = carreras;
+	public void ofrecerACarrera(Carrera carrera) {
+		carreras.add(carrera);
+	}
+	
+	@Override
+	public String toString() {
+		return "nombre= " + nombre+"\ncreditos= " + creditos +"\ntipologia=" + tipologia + "\ncodigo="
+				+ codigo + "\nduracion=" + duracion + "\ndepartamento=" + departamento;
 	}
 	
 	

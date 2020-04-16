@@ -4,14 +4,48 @@ import java.util.ArrayList;
 
 public class Carrera {
 	
+	private String nombre;
 	private int creditos;
 	private String codigoCarrera;
-	private String nombre;
 	private Departamento departamento;
 	private ArrayList<Estudiante> estudiantes;
 	private ArrayList<Asignatura> asignaturasDeCarrera;
-
 	
+	
+	public Carrera(String nombre) {
+		this.nombre = nombre;
+		creditos = 0;
+		codigoCarrera = "";
+		estudiantes  = new ArrayList<Estudiante>();
+		asignaturasDeCarrera = new ArrayList<Asignatura>();
+	}
+	
+	public Carrera(String nombre, int creditos) {
+		this.nombre = nombre;
+		this.creditos = creditos;
+		codigoCarrera = "";
+		estudiantes  = new ArrayList<Estudiante>();
+		asignaturasDeCarrera = new ArrayList<Asignatura>();
+	}
+	
+	
+	public Carrera(String nombre, int creditos, Departamento departamento) {
+		this.nombre = nombre;
+		this.creditos = creditos;
+		this.departamento = departamento;
+		estudiantes  = new ArrayList<Estudiante>();
+		asignaturasDeCarrera = new ArrayList<Asignatura>();
+	}
+
+	public Carrera(String nombre, int creditos, String codigoCarrera, Departamento departamento) {
+		this.nombre = nombre;
+		this.creditos = creditos;
+		this.codigoCarrera = codigoCarrera;
+		this.departamento = departamento;
+		estudiantes  = new ArrayList<Estudiante>();
+		asignaturasDeCarrera = new ArrayList<Asignatura>();
+	}
+
 	public Departamento getDepartamento() {
 		return departamento;
 	}
@@ -48,5 +82,12 @@ public class Carrera {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	@Override
+	public String toString() {
+		return "nombre=" + nombre + "\ncreditos=" + creditos + "\ncodigoCarrera=" + codigoCarrera
+				+ "\ndepartamento=" + departamento.getNombre();
+	}
+	
 
 }

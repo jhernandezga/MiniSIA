@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Estudiante {
 	
+	private String nombre;
 	private int cedula;
 	private int edad;
 	private int creditosAprobados;
@@ -11,12 +12,80 @@ public class Estudiante {
 	private int creditosDisponibles;
 	private int matricula;
 	private double promedio;
-	private String nombre;
 	private String email;
 	private ArrayList<Grupo> gruposInscritos; 
 	private Carrera carrera;
 
+	public Estudiante(String pNombre)
+	{
+		nombre = pNombre;
+		cedula = 0;
+		edad = 0;
+		creditosAprobados = 0;
+		creditosReprobados = 0;
+		matricula = 1;
+		promedio = 0;
+		email = "";
+		carrera=null;
+		gruposInscritos = new ArrayList<Grupo>();
+		
+	}
+	public Estudiante(String pNombre, int pCedula)
+	{
+		nombre = pNombre;
+		cedula = cedula;
+		edad = 0;
+		creditosAprobados = 0;
+		creditosReprobados = 0;
+		matricula = 1;
+		promedio = 0;
+		email = "";
+		carrera=null;
+		gruposInscritos = new ArrayList<Grupo>();
+		
+	}
+	public Estudiante(String pNombre, Carrera pCarrera)
+	{
+		nombre = pNombre;
+		cedula = 0;
+		edad = 0;
+		creditosAprobados = 0;
+		creditosReprobados = 0;
+		matricula = 1;
+		promedio = 0;
+		email = "";
+		carrera=pCarrera;
+		gruposInscritos = new ArrayList<Grupo>();
+	}
+	public Estudiante(String pNombre,int pCedula, Carrera pCarrera)
+	{
+		nombre = pNombre;
+		cedula = pCedula;
+		edad = 0;
+		creditosAprobados = 0;
+		creditosReprobados = 0;
+		matricula = 1;
+		promedio = 0;
+		email = "";
+		carrera=pCarrera;
+		gruposInscritos = new ArrayList<Grupo>();
+	}
 	
+	
+	public Estudiante(String nombre, int cedula, int edad, int creditosAprobados, int creditosReprobados,
+			int creditosDisponibles, int matricula, double promedio, String email, Carrera carrera) {
+		super();
+		this.nombre = nombre;
+		this.cedula = cedula;
+		this.edad = edad;
+		this.creditosAprobados = creditosAprobados;
+		this.creditosReprobados = creditosReprobados;
+		this.creditosDisponibles = creditosDisponibles;
+		this.matricula = matricula;
+		this.promedio = promedio;
+		this.email = email;
+		this.carrera = carrera;
+	}
 	public Carrera getCarrera() {
 		return carrera;
 	}
@@ -83,4 +152,12 @@ public class Estudiante {
 	public void setGruposInscritos(ArrayList<Grupo> gruposInscritos) {
 		this.gruposInscritos = gruposInscritos;
 	}
+	@Override
+	public String toString() {
+		return "nombre=" + nombre + "\ncedula=" + cedula + "\nedad=" + edad + "\ncreditosAprobados="
+				+ creditosAprobados + "\ncreditosReprobados=" + creditosReprobados + "\ncreditosDisponibles="
+				+ creditosDisponibles + "\nmatricula=" + matricula + "\npromedio=" + promedio + "\nemail=" + email
+				+ "\ncarrera=" + carrera.getNombre() + "]";
+	}
+	
 }
